@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from "react";
 import Logo from "./Logo";
 import Form from "./Form";
@@ -5,11 +6,7 @@ import PackingList from "./PackingList";
 import Stats from "./Stats";
 
 function App() {
-  // Initialize the items state with default values for Shirt (5) and Pants (2)
-  const [items, setItems] = useState([
-    { id: 1, description: "Shirt", quantity: 5, packed: false },
-    { id: 2, description: "Pants", quantity: 2, packed: false },
-  ]);
+  const [items, setItems] = useState([]);
 
   function handleAddItems(item) {
     setItems((prevItems) => [...prevItems, item]);
@@ -36,6 +33,7 @@ function App() {
         handleRemoveItem={handleRemoveItem}
         handleUpdateItem={handleUpdateItem}
       />
+      {/* Pass items as a prop to Stats */}
       <Stats items={items} />
     </div>
   );
